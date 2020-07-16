@@ -7,6 +7,6 @@ services:
         image: grafana/grafana
         user: "$UID:$GID"
         environment:
-            - 'GF_INSTALL_PLUGINS=grafana-strava-datasource,alexanderzobnin-zabbix-app'
+            - 'GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app,grafana-azure-monitor-datasource,'
         volumes:
             - ./data/grafana:/var/lib/grafana
