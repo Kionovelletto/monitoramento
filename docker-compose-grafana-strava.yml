@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    grafana:
+        container_name: grafana
+        ports:
+            - '3000:3000'
+        image: grafana/grafana:6.5.3
+        user: "$UID:$GID"
+        environment:
+            - 'GF_INSTALL_PLUGINS=grafana-strava-datasource'
+            - 'GF_STRAVA_DS_DATA_PATH=/var/lib/grafana/strava'
+            - 'GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=grafana-strava-datasource'
+        volumes:
+            - ./data-strava/grafana:/var/lib/grafana
